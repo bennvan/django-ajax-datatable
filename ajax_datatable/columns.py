@@ -205,7 +205,7 @@ class ForeignColumn(Column):
                 except AttributeError:
                     try:
                         current_value = [getattr(f, current_path_item) for f in current_value]
-                    except AttributeError:
+                    except (AttributeError, TypeError):
                         current_value = None
 
             if current_value is None:
